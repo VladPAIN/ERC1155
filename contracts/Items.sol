@@ -13,7 +13,7 @@ contract Items is ERC1155, AccessControl {
     uint256 public constant INTELLIGENCE = 2;
     uint256 public constant STRENGTH = 3;
 
-    constructor() public ERC1155("https://gateway.pinata.cloud/ipfs/QmRDUvTw6P31MKsTbW8KZk7avewnhr48FrU5zxXY7R2Ckz/{id}.json") {
+    constructor() public ERC1155("https://gateway.pinata.cloud/ipfs/QmfWUzLTijxfLieTqCiLqdHBBMMF8wX1fvn3qrGAyA5uS4/{id}.json") {
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(ADMIN_ROLE, msg.sender);
@@ -23,6 +23,8 @@ contract Items is ERC1155, AccessControl {
         _setRoleAdmin(ADMIN_ROLE, DEFAULT_ADMIN_ROLE);
         _setRoleAdmin(MINTER_ROLE, ADMIN_ROLE);
         _setRoleAdmin(BURNER_ROLE, ADMIN_ROLE);
+
+
 
     }
 
@@ -35,6 +37,15 @@ contract Items is ERC1155, AccessControl {
         require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
         _mint(recipient, id, amount, "");
+
+        return true;
+    }
+
+    function burnNFT(address owner, uint256 id, uint256 amount) public returns (bool) {
+        require(hasRole(BURNER_ROLE, msg.sender), "Caller is not a burner");
+        require(balanceOf(owner, id) >= amount, "Owner dont have enough tokens");
+
+        _burn(owner, id, amount);
 
         return true;
     }

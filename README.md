@@ -1,7 +1,7 @@
-ELEMS_ADDRESS = 0xf730A136cd2ee2e3749EE285D94149f30cB75e96
+ITEMS_ADDRESS = 0x45a8Ac6E1Bc569bc29DD52F9fa1BE7b4eEADcfEF
 
-Etherscan: https://rinkeby.etherscan.io/address/0xf730A136cd2ee2e3749EE285D94149f30cB75e96
+Etherscan: https://rinkeby.etherscan.io/address/0x45a8Ac6E1Bc569bc29DD52F9fa1BE7b4eEADcfEF
 
-COLLECTION: https://testnets.opensea.io/collection/elems-v4
+COLLECTION: https://testnets.opensea.io/collection/unidentified-contract-eo3e70j2oj
 
 ![alt text](coverage1.jpg)
