@@ -39,6 +39,44 @@ describe('Items contract', () => {
 
     });
 
+    describe("SafeTransfer", function () { 
+
+        // it.only("Should transfer", async function () {
+
+        //     await items.mintNFT(owner.address, 1, 3);
+
+
+
+        // });
+
+        it('Reverts when transferring more than balance', async function () {
+
+            await items.mintNFT(owner.address, 1, 3);
+
+            await expect(items.safeTransferFrom(owner.address, addr1.address, 1, 4, '0x')).to.be.revertedWith('ERC1155: insufficient balance for transfer');
+
+          });
+
+        it('Sucsecfull safeTransferFrom', async function () {
+
+            await items.mintNFT(owner.address, 1, 3);
+            await items.setApprovalForAll(addr1.address, true);
+
+            await items.safeTransferFrom(owner.address, addr1.address, 1, 2, '0x');
+            expect(await items.balanceOf(addr1.address, 1)).to.equal("2");
+
+        });
+
+        it('safeTransferFrom without approval', async function () {
+
+            await items.mintNFT(owner.address, 1, 3);
+
+            await expect(items.safeTransferFrom(owner.address, addr1.address, 1, 4, '0x')).to.be.revertedWith('ERC1155: insufficient balance for transfer');
+
+        });
+
+    });
+
     describe("Burn", function () {
 
         it("Should burn", async function () {

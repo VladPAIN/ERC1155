@@ -19,6 +19,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
     "@symblox/hardhat-dotenv": "^1.0.0",
-    "assert": "^2.0.0"
+    "assert": "^2.0.0",
+    "constants": "^0.0.2"
   }
 }
