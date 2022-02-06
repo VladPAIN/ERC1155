@@ -9,9 +9,9 @@ contract Items is ERC1155, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
-    uint256 public constant AGILITY = 1;
-    uint256 public constant INTELLIGENCE = 2;
-    uint256 public constant STRENGTH = 3;
+    //AGILITY = 1;
+    //INTELLIGENCE = 2;
+    //STRENGTH = 3;
 
     constructor() public ERC1155("https://gateway.pinata.cloud/ipfs/QmfWUzLTijxfLieTqCiLqdHBBMMF8wX1fvn3qrGAyA5uS4/{id}.json") {
 
